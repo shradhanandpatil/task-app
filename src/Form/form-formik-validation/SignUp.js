@@ -5,11 +5,16 @@ import TextFile from './TextFile'
 import '../css/formik.css'
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function SignUp() {
+  const navigate= useNavigate();
   const handleSubmit=(values)=>{
-    // localStorage.setItem(values.firstname,JSON.stringify(values));
+    localStorage.setItem('firstName',JSON.stringify(values.firstname))
+    localStorage.setItem('lastname',JSON.stringify(values.lastname))
+    localStorage.setItem('email',JSON.stringify(values.email))
+    localStorage.setItem('password',JSON.stringify(values.password))
+    localStorage.setItem('confirmPassword',JSON.stringify(values.confirmPassword))
     if(values){
       toast.success('SignUp success ', {
         position: "top-center",
@@ -20,6 +25,7 @@ function SignUp() {
         draggable: true,
         progress: undefined,
         });
+        navigate('/login');
       }
   }
 

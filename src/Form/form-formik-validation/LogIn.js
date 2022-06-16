@@ -4,11 +4,23 @@ import * as Yup from 'yup'
 import TextFile from './TextFile'
 import { toast, ToastContainer } from 'react-toastify'
 import '../css/formik.css'
+import { useNavigate } from 'react-router-dom'
 
+
+const userName=localStorage.getItem('email') 
+const userPassword=localStorage.getItem('password') 
+// console.log('username :',userName,'pass :',userPassword);
 function LogIn() {
+    const navigate=useNavigate();
     const handleSubmit=(values)=>{
-        if(values){
-          toast.success('SignUp success ', {
+        localStorage.setItem('userEmail',JSON.stringify(values.email))
+        localStorage.setItem('userPassword',JSON.stringify(values.password))
+        const email=localStorage.getItem('userEmail')
+        const pass=localStorage.getItem('userPassword')
+        // console.log('email :',email,'pass:',pass);
+        if(email === userName && pass === userPassword ) 
+        {
+          toast.success('login success ', {
             position: "top-center",
             autoClose: 700,
             hideProgressBar: false,
@@ -16,7 +28,20 @@ function LogIn() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            });
+            })
+            navigate('/dashboard')
+          }
+          else
+          {
+            toast.warn('wrong Email and Password ', {
+                position: "top-center",
+                autoClose: 700,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                })
           }
       }
 

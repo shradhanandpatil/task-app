@@ -22,11 +22,11 @@ input{
     outline: none;
     border: 1px solid lightblue;
     background-color: rgb(232, 243, 247);
-    box-shadow: 1px 1px 5px lightblue;
 }
 
 input:hover{
     background-color: white;
+    box-shadow: 1px 1px 10px lightblue;
 }
 
 .btn-black{

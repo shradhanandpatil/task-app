@@ -13,6 +13,7 @@ export default function UseRef() {
        e.preventDefault();
         myName.current.value === "" ? alert("Enter your UserName") : setName(true);   
         myPass.current.value === "" ? alert("Enter your Password") : setPassword(true);
+        console.log(password);
         if(name === true){
           toast.success('Log in success ', {
             position: "top-center",
