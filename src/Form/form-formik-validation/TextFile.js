@@ -1,6 +1,6 @@
 import { ErrorMessage, useField } from 'formik'
 import React from 'react'
-import '../css/login.css'
+import '../css/formik.css'
 import TextError from './TextError'
 
 function TextFile({label , ...props}) {

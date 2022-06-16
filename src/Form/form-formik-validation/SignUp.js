@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup';
 import TextFile from './TextFile'
-import '../css/login.css'
+import '../css/formik.css'
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { NavLink } from 'react-router-dom';
-// import useLocalStorage from '../../useLocalStorage';
+import { NavLink } from 'react-router-dom';
 
 function SignUp() {
-  const [name,setName]=useState(false)
   const handleSubmit=(values)=>{
     // localStorage.setItem(values.firstname,JSON.stringify(values));
     if(values){
@@ -26,7 +24,15 @@ function SignUp() {
   }
 
   const handeReset=()=>{
-    alert("Form Reset");
+    toast.success('Form Reset ', {
+      position: "top-center",
+      autoClose: 700,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 
   const validation=Yup.object({
@@ -79,7 +85,7 @@ function SignUp() {
               <TextFile label='Confirm Password' name='confirmPassword' type='password' />
               <button type='submit' className='btn-black'>SignUp</button>
               <button type='reset' onClick={handeReset}  className='btn-red'>Reset</button>
-              {/* <p>I have already account <NavLink to="/login">Login</NavLink></p> */}
+              <p>I have already account <NavLink to="/login">Login</NavLink></p>
             </div>
         </Form>
       </Formik>

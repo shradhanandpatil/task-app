@@ -4,18 +4,19 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function UseRef() {
-   const myName=useRef(null);
-   const myPass=useRef(null);
+   const myName=useRef('');
+   const myPass=useRef('');
    const [name,setName]=useState(false);
    const [password,setPassword]=useState(false);
    const show=(e)=>{
+      setName(false);
        e.preventDefault();
-        myName.current.value === ""? alert("Enter your UserName"):setName(true)   
-        myPass.current.value === ""? alert("Enter your Password"):setPassword(true)  
+        myName.current.value === "" ? alert("Enter your UserName") : setName(true);   
+        myPass.current.value === "" ? alert("Enter your Password") : setPassword(true);
         if(name === true){
-          toast.dark('Log in success ', {
+          toast.success('Log in success ', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
