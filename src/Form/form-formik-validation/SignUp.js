@@ -25,6 +25,10 @@ function SignUp() {
       }
   }
 
+  const handeReset=()=>{
+    alert("Form Reset");
+  }
+
   const validation=Yup.object({
     firstname: Yup.string()
     .max(15,'Must be 15 characters or less')
