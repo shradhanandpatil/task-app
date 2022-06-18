@@ -9,15 +9,16 @@ import { useNavigate } from 'react-router-dom'
 
 const userName=localStorage.getItem('email') 
 const userPassword=localStorage.getItem('password') 
-// console.log('username :',userName,'pass :',userPassword);
+
 function LogIn() {
     const navigate=useNavigate();
     const handleSubmit=(values)=>{
+      localStorage.setItem('login',true);
         localStorage.setItem('userEmail',JSON.stringify(values.email))
         localStorage.setItem('userPassword',JSON.stringify(values.password))
-        const email=localStorage.getItem('userEmail')
-        const pass=localStorage.getItem('userPassword')
-        // console.log('email :',email,'pass:',pass);
+        const email=localStorage.getItem('userEmail');
+        const pass=localStorage.getItem('userPassword');
+
         if(email === userName && pass === userPassword ) 
         {
           toast.success('login success ', {
@@ -28,7 +29,7 @@ function LogIn() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            })
+            });
             navigate('/dashboard')
           }
           else
