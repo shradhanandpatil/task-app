@@ -60,3 +60,13 @@ h1{
     color: red;
     font-size: 0.8rem;
 }
+
+
+.lazyText{
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: 600;
+}

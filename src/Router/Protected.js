@@ -12,7 +12,7 @@ export default function Protected(props) {
     })
   return (
     <>
-    <Component/>
+        <Component/>
     </>
   )
 }

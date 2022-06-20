@@ -4,8 +4,7 @@ import * as Yup from 'yup'
 import TextFile from './TextFile'
 import { toast, ToastContainer } from 'react-toastify'
 import '../css/formik.css'
-import { useNavigate } from 'react-router-dom'
-
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const userName=localStorage.getItem('email') 
 const userPassword=localStorage.getItem('password') 
@@ -13,12 +12,11 @@ const userPassword=localStorage.getItem('password')
 function LogIn() {
     const navigate=useNavigate();
     const handleSubmit=(values)=>{
-      localStorage.setItem('login',true);
         localStorage.setItem('userEmail',JSON.stringify(values.email))
         localStorage.setItem('userPassword',JSON.stringify(values.password))
         const email=localStorage.getItem('userEmail');
         const pass=localStorage.getItem('userPassword');
-
+        localStorage.setItem('login',true);
         if(email === userName && pass === userPassword ) 
         {
           toast.success('login success ', {
@@ -72,7 +70,8 @@ function LogIn() {
               <h1>Log In</h1>
               <TextFile label='email' name='email' type='Email' />
               <TextFile label='password' name='password' type='password' />
-              <button type='submit' className='btn-black'>LogIn</button>
+              <button type='submit' className='btn-black'>LogIn</button><br></br>
+              <span>Create an account </span><NavLink to='/'>SignUp</NavLink>
             </div>
         </Form>
       </Formik>
