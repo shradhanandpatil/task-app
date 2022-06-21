@@ -1,15 +1,15 @@
-import { Grid, Box, Typography, Paper } from "@mui/material";
+import { Grid, Box, Typography, Paper,Card , CardActionArea,CardMedia,CardContent,Button} from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-// import DashboardCard from "./Card";
+import { useNavigate } from "react-router";
 function Dashboard() {
+  const navigate=useNavigate();
   const [data, setData] = useState([]);
   const getData = async () => {
     try {
       const res = await fetch("https://dummyjson.com/products");
       const result = await res.json();
-      console.log(result.products);
       setData(result.products);
     } catch (error) {
       console.log(error);
@@ -20,6 +20,14 @@ function Dashboard() {
     getData();
   },[]);
 
+  const userName=localStorage.getItem('firstName');
+  const lastName=localStorage.getItem('lastname');
+  const email=localStorage.getItem('email');
+
+  const handelClick=()=>{
+    localStorage.clear();
+    navigate('/login');
+  }
   return (
     <>
       <Grid container>
@@ -29,19 +37,43 @@ function Dashboard() {
               <Typography variant="h6" sx={{ textAlign: "center" }}>
                 User Details
               </Typography>
+              <Typography variant="p">Name :{userName}{lastName}</Typography><br></br>
+              <Typography variant="p">Email :{email}</Typography><br></br>
+              <Button onClick={handelClick} variant="contained">LogOut</Button>
             </Paper>
           </Box>
         </Grid>
         <Grid item lg={10}>
           <Box sx={{ textAlign: "center", padding: "1rem" }}>
             <Typography variant="h3">Dashboard Page</Typography>
+            <Grid item p={2} >
+              <Box sx={{display:'grid',gridTemplateColumns: 'repeat(3,1fr)',gap: '15px'}}>
                {
                   data.map((products) => (
-                    <div key={products.id}>
-                      <Typography variant="h1">{products.title}</Typography>
-                    </div>
+                    <Grid container key={products.id}>
+                        <Card sx={{ maxWidth: 390 }}>
+                              <CardActionArea>
+                                  <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={products.thumbnail}
+                                    alt="green iguana"
+                                  />
+                                  <CardContent>
+                                    <Typography gutterBottom variant="h5" component="div">
+                                      {products.titel}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                      {products.description}
+                                    </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                          </Card>
+                  </Grid>
                   ))
-                  };
+                 };
+              </Box>
+            </Grid>
             </Box>
         </Grid>
       </Grid>

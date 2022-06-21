@@ -16,18 +16,17 @@ function LogIn() {
         localStorage.setItem('userPassword',JSON.stringify(values.password))
         const email=localStorage.getItem('userEmail');
         const pass=localStorage.getItem('userPassword');
-        localStorage.setItem('login',true);
         if(email === userName && pass === userPassword ) 
         {
           toast.success('login success ', {
             position: "top-center",
             autoClose: 700,
-            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
             });
+            localStorage.setItem('login',true);
             navigate('/dashboard')
           }
           else
