@@ -10,7 +10,8 @@ import React from 'react';
 // import SignUp from './Form/form-formik-validation/SignUp';
 // import Protected from './Router/Protected';
 import './Form/css/formik.css'
-import Index from './Redux';
+import Index from './Redux/Components';
+import NavBar from './Redux/Components/navBar';
 // import LoginForm from './Form/Form2/loginForm';
 // import SubmitForm from './Form/Form2/submitForm';
 
@@ -38,6 +39,7 @@ function App() {
     </Router> */}
     {/* <LoginForm/>
     <SubmitForm/> */}
+    <NavBar/>
     <Index/>
     </>
   );
