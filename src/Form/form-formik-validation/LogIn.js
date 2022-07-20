@@ -5,6 +5,7 @@ import TextFile from './TextFile'
 import { toast, ToastContainer } from 'react-toastify'
 import '../css/formik.css'
 import { NavLink, useNavigate } from 'react-router-dom'
+import Navbar from '../../Navbar/Navbar'
 
 const userName=localStorage.getItem('email') 
 const userPassword=localStorage.getItem('password') 
@@ -60,6 +61,7 @@ function LogIn() {
     
   return (
     <>
+    <Navbar/>
       <Formik
           initialValues={initialValues}
           validationSchema={validation}
@@ -71,7 +73,7 @@ function LogIn() {
               <TextFile label='email' name='email' type='Email' />
               <TextFile label='password' name='password' type='password' />
               <button type='submit' className='btn-black'>LogIn</button><br></br>
-              <span>Create an account </span><NavLink to='/'>SignUp</NavLink>
+              <span>Create an account </span><NavLink to='/formik'>SignUp</NavLink>
             </div>
         </Form>
       </Formik>

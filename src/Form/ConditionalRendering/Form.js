@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../css/form.css"
+import Home from '../../Components/Home';
 import { validEmail,validPassword} from '../Regex/regex';
 
 export default function Form() {
@@ -10,7 +10,6 @@ export default function Form() {
     let [number,setNumber]=useState("");
     let [emailErr, setEmailErr] = useState(false);
     let [pwdError, setPwdError] = useState(false);
-    let [color,setColor]=useState(null);
     const validate = () => {
       if (!validEmail.test(email)) {
          setEmailErr(true);
@@ -22,21 +21,9 @@ export default function Form() {
       }
    };
 
-   const changeColor=()=>{
-     setColor({
-      backgroundColor: "black",
-      color: "white"
-     });
-    }
-     const changeColors=()=>{
-      setColor({
-       backgroundColor: "purple",
-       color: "white"
-      });
-   }
   return (
     <>
-    <h1>welcome to my web</h1>
+    <Home/>
     <div className="conatiner">
     <form>
           <div>
@@ -59,7 +46,7 @@ export default function Form() {
               <label htmlFor="number">Number : </label>
               <input type="number" id='password' placeholder='Enter your Number'required value={number} onChange={(e)=> setNumber(e.target.value)} />
           </div>
-          <button type='submit' onClick={validate} onMouseEnter={changeColor} onMouseLeave={changeColors} style={color} className='btn'>Submit</button>
+          <button type='submit' onClick={validate}  className='btn'>Submit</button>
       </form> 
     </div>
     </>

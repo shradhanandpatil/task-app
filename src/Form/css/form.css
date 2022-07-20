@@ -1,9 +1,9 @@
-.conatiner{
+/* .conatiner{
     font-size: 2rem;
-    border: 2px solid purple;
+    border: 2px solid rgb(13,110,253);
     width: fit-content;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 2rem;
@@ -23,7 +23,7 @@ input{
 .btn{
     padding: 1rem 2rem;
     align-items: center;
-    background-color: purple;
+    background-color: rgb(13,110,253);
     color: white;
     margin: 1rem;
     font-size: 1rem;
@@ -31,6 +31,6 @@ input{
 }
 
 h1{
-    color: purple;
+    color: rgb(13,110,253);
     text-align: center;
-}
+} */

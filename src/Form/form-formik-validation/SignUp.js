@@ -6,6 +6,7 @@ import '../css/formik.css'
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import Navbar from '../../Navbar/Navbar';
 
 function SignUp(props) {
   const navigate= useNavigate();
@@ -76,6 +77,7 @@ function SignUp(props) {
   
   return (
     <>
+    <Navbar/>
       <Formik
           initialValues={initialValues}
           validationSchema={validation}
