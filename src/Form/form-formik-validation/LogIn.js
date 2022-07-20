@@ -8,7 +8,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const userName=localStorage.getItem('email') 
 const userPassword=localStorage.getItem('password') 
-
 function LogIn() {
     const navigate=useNavigate();
     const handleSubmit=(values)=>{
@@ -16,6 +15,8 @@ function LogIn() {
         localStorage.setItem('userPassword',JSON.stringify(values.password))
         const email=localStorage.getItem('userEmail');
         const pass=localStorage.getItem('userPassword');
+        console.log(email,pass);
+        console.log(userName,userPassword);
         if(email === userName && pass === userPassword ) 
         {
           toast.success('login success ', {

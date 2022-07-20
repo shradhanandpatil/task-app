@@ -1,21 +1,27 @@
-import React, { lazy ,Suspense  } from 'react';
-import Navbar from './Navbar/Navbar';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import SignUp from './Form/form-formik-validation/SignUp';
-import Protected from './Router/Protected';
+// import React, { lazy ,Suspense  } from 'react';
+import React from 'react';
+
+// import Navbar from './Navbar/Navbar';
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
+// import SignUp from './Form/form-formik-validation/SignUp';
+// import Protected from './Router/Protected';
 import './Form/css/formik.css'
+import Index from './Redux';
+// import LoginForm from './Form/Form2/loginForm';
+// import SubmitForm from './Form/Form2/submitForm';
 
-const LogIn= lazy (()=>import('./Form/form-formik-validation/LogIn'));
-const Dashboard = lazy(()=> import('./Form/form-formik-validation/Dashboard'))
 
-function App() {
+// const LogIn= lazy (()=>import('./Form/form-formik-validation/LogIn'));
+// const Dashboard = lazy(()=> import('./Form/form-formik-validation/Dashboard'))
+
+function App() {  
   return (
     <>
-    <Router>
+    {/* <Router>
     <Navbar/>
       <Routes>
        <Route exact path='/' element={<SignUp/>} />
@@ -29,7 +35,10 @@ function App() {
           <Protected Component={Dashboard}/>
         </Suspense>} />
       </Routes>
-    </Router>
+    </Router> */}
+    {/* <LoginForm/>
+    <SubmitForm/> */}
+    <Index/>
     </>
   );
 }

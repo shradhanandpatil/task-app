@@ -7,7 +7,7 @@ import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-function SignUp() {
+function SignUp(props) {
   const navigate= useNavigate();
   const handleSubmit=(values)=>{
     localStorage.setItem('firstName',JSON.stringify(values.firstname))
