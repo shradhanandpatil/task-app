@@ -19,10 +19,12 @@ function Dashboard() {
   useEffect(() => {
     getData();
   },[]);
-
   const userName=localStorage.getItem('firstName');
+  const name= userName.replaceAll("\""," ");
   const lastName=localStorage.getItem('lastname');
+  const lname= lastName.replaceAll("\""," ");
   const email=localStorage.getItem('email');
+  const mail= email.replaceAll("\""," ");
 
   const handelClick=()=>{
     localStorage.clear();
@@ -37,9 +39,9 @@ function Dashboard() {
               <Typography variant="h6" sx={{ textAlign: "center" }}>
                 User Details
               </Typography>
-              <Typography variant="p">Name :{userName}{lastName}</Typography><br></br>
-              <Typography variant="p">Email :{email}</Typography><br></br>
-              <Button onClick={handelClick} variant="contained">LogOut</Button>
+              <Typography style={{margin:"1rem"}} variant="p">Name :{name}{lname}</Typography><br></br>
+              <Typography style={{margin:"1rem"}} variant="p">Email :{mail}</Typography><br></br>
+              <Button onClick={handelClick} style={{margin:"1rem"}} variant="contained">LogOut</Button>
             </Paper>
           </Box>
         </Grid>
